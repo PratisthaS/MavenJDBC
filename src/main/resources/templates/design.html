@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Car Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  
+  <body>
+    <h1>Design your Car!</h1>
+    <img th:src="@{/images/car.jpg}"/>
+        
+    <form method="POST" th:object="${car}">
+
+    <span class="validationError"
+          th:if="${#fields.hasErrors('features')}" 
+          th:errors="*{features}">Features Error</span>
+
+    <div class="grid">
+      <div class="feature-group" id="type">
+      <h3>Designate your Type:</h3>
+      <div th:each="features : ${type}">
+        <input name="features" type="checkbox" th:value="${features.id}" />
+        <span th:text="${features.name}">FEATURE</span><br/>
+      </div>
+      </div>
+
+	  <div class="feature-group" id="make">
+      <h3>Pick your Make:</h3>
+      <div th:each="features : ${make}">
+        <input name="features" type="checkbox" th:value="${features.id}" />
+        <span th:text="${features.name}">FEATURE</span><br/>
+      </div>
+      </div>
+  
+	  <div class="feature-group" id="year">
+      <h3>Choose your YEAR:</h3>
+      <div th:each="features : ${year}">
+        <input name="features" type="checkbox" th:value="${features.id}" />
+        <span th:text="${features.name}">FEATURE</span><br/>
+      </div>
+      </div>
+        
+	  <div class="feature-group" id="color">
+      <h3>Determine your Color:</h3>
+      <div th:each="features : ${color}">
+        <input name="features" type="checkbox" th:value="${features.id}" />
+        <span th:text="${features.name}">FEATURE</span><br/>
+      </div>
+      </div>
+      
+      <div>
+
+
+      <h3>Name your Car creation:</h3>
+      <input type="text" th:field="*{name}"/>
+      <span class="validationError"
+            th:if="${#fields.hasErrors('name')}" 
+            th:errors="*{name}">Name Error</span>
+      <br/>
+      
+      <button>Submit your Car</button>
+      </div>
+    </form>
+  </body>
+</html>

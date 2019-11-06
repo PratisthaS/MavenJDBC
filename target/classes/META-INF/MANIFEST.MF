@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: prati
+Build-Jdk: 11.0.4
+Implementation-Title: car-cloud
+Implementation-Version: 0.0.3-SNAPSHOT
+Implementation-Vendor-Id: sia
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/shrestha_pratistha
+Created-By: Maven Integration for Eclipse
+
